@@ -1,0 +1,26 @@
+body {
+    background-image: url("img/table-background.png");
+}
+
+
+#menu {
+    background-image: url("img/black-leather-pattern.png");
+    display: inline-block;
+    position: absolute;
+    border: 1px solid rgb(20, 20, 20);
+    box-shadow: -4px 4px 10px black;
+    
+    width: 750px;
+    margin: 50px;
+}
+#menu > div {
+    background-image: url("raw/parchment-pattern.jpg");    
+    width: 95%;
+    height: 95%;
+    margin: 1.5%;
+    padding: 1%;
+    border: 1px solid beige;
+}
+#menu corner {
+    position: absolute;
+}
