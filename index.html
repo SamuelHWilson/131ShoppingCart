@@ -3,23 +3,32 @@
 <html>
 
 <head>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">  <!-- Satisfy -->
+
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <div id="menu">
-        <div>
-            <p>Testing is something I am doing right now, yep that is what I'm doing.</p>
-            <p>Test</p>
-            <p>Test</p>
-            <p>Test</p>
-            <p>Test</p>
-        </div>
+    <div class="container-fluid">
+        <div class="col-6">
+            <div id="menu" class="my-5">
+                <div class="menu-body">
+                    <h2 class="menu-header">Menu</h1>
+                    <div class="menu-item">
+                        <img src="img/alfredo-test.jpg" alt="Alfredo">
+                    </div>
+                </div>
 
-        <!-- Brass corners. Code looks dreadful, but it's as effeciant as it's going to get. -->
-        <img style="top: -4px; left: -4px; transform: rotate(90deg); position: absolute; width: 7%;" class="corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
-        <img style="top: -4px; right: -4px; transform: rotate(180deg); position: absolute; width: 7%;" class="corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
-        <img style="bottom: -4px; left: -4px; position: absolute; width: 7%;" class="corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
-        <img style="bottom: -4px; right: -4px; transform: rotate(270deg); position: absolute; width: 7%;" class="corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
+                <!-- Brass corners. Code looks dreadful, but it's as effeciant as it's going to get. -->
+                <img style="top: -4px; left: -4px; transform: rotate(90deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
+                <img style="top: -4px; right: -4px; transform: rotate(180deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
+                <img style="bottom: -4px; left: -4px;" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
+                <img style="bottom: -4px; right: -4px; transform: rotate(270deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
+            </div>
+        </div>
     </div>
 </body>
 
