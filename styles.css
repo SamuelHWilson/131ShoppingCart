@@ -1,8 +1,15 @@
+/* General Styles */
 body {
     background-image: url("img/table-background.png");
+    font-size: 1.2rem;
 }
 
+/* Utility */
+.satisfy {
+    font-family: 'Satisfy', cursive;
+}
 
+/* General Menu Styles */
 #menu {
     background-image: url("img/black-leather-pattern.png");
     display: inline-block;
@@ -28,6 +35,23 @@ body {
     font-size: 4rem;
     text-align: center;
 }
-#menu p, #menu h2 {
+#menu p, #menu h2, #menu .menu-body img {
     opacity: 0.9;
+}
+
+/* Menu-item styles. */
+#menu .menu-item img {
+    width: 25%;
+    float: left;
+}
+#menu .menu-item p {
+    margin-bottom: 0.2rem;
+}
+#menu .menu-item-order {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 2px 10px;
+    margin-top: 0.5rem;
+    font-weight: bold;
 }
