@@ -16,30 +16,74 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
     <div id="main" class="container-fluid">
-        <div class="col-6">
-            <div id="menu" class="my-5">
-                <div class="menu-body">
-                    <h2 class="menu-header mb-2">Menu</h1>
+        <div class="row">
+            <!-- Menu -->
+            <div class="col-xs-12 col-lg-6">
+                <div id="menu" class="my-5">
+                    <div class="menu-body">
+                        <h2 class="header mt-2 mb-3">Menu</h1>
 
-                    <!-- Represents one menu item. -->
-                    <div v-for="item in items" class="menu-item clearfix mb-4">
-                        <img class="pr-2" v-bind:src="item.imgSrc" alt="Alfredo">
-                        <div class="menu-item-body">
-                            <p><strong>{{item.name}}</strong> | <strong>{{item.stock}}</strong> plates left | <strong>${{item.price}}</strong></p>
-                            <p>{{item.desc}}</p>
-                            <p class="menu-item-order">Add to Order x1</p>
+                        <!-- Represents one menu item. -->
+                        <div v-for="item in items" class="menu-item clearfix mb-5">
+                            <img class="pr-2" v-bind:src="item.imgSrc" alt="Alfredo">
+                            <div class="menu-item-body">
+                                <p><strong>{{item.name}}</strong> | <strong>{{item.stock}}</strong> plates left | <strong>${{item.price.toFixed(2)}}</strong></p>
+                                <p>{{item.desc}}</p>
+                                <p v-on:click="OrderItem(item)" v-show="item.stock > 0" class="button mt-2">Order x1</p>
+                            </div>
                         </div>
+                        <!-- End item -->
+
                     </div>
-                    <!-- End item -->
 
+                    <!-- Brass corners. Code looks dreadful, but it's as effeciant as it's going to get. -->
+                    <img style="top: -4px; left: -4px; transform: rotate(90deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
+                    <img style="top: -4px; right: -4px; transform: rotate(180deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
+                    <img style="bottom: -4px; left: -4px;" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
+                    <img style="bottom: -4px; right: -4px; transform: rotate(270deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
                 </div>
-
-                <!-- Brass corners. Code looks dreadful, but it's as effeciant as it's going to get. -->
-                <img style="top: -4px; left: -4px; transform: rotate(90deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
-                <img style="top: -4px; right: -4px; transform: rotate(180deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
-                <img style="bottom: -4px; left: -4px;" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
-                <img style="bottom: -4px; right: -4px; transform: rotate(270deg);" class="menu-corner" src="img/brass_triangle.png" alt="Brass corner graphic.">
             </div>
+            <!-- End Menu -->
+
+            <!-- Order Details -->
+            <div class="col-xs-12 col-lg-6">
+                <div id="details" class="my-5">
+                    <img class="details-top" src="img/legal-pad-top.png" alt="Legal pad top.">
+                    <div class="details-body">
+                        <h2 class="header">Your Order</h2>
+                        
+                        <p class="divider">Items</p>
+                        <table class="details-items">
+                            <tr v-for="item in items" v-if="item.ordered > 0">
+                                <td><p>{{item.ordered}}x {{item.name}} (${{item.price.toFixed(2)}})</p></td>
+                                <td><p>${{(item.price * item.ordered).toFixed(2)}}</p></td>
+                                <td><p v-on:click="ClearItem(item)" class="button">Clear</p></td>
+                            </tr>
+                        </table>
+                        <p v-if="totalOrdered == 0">Nothing yet!</p>
+
+                        <p class="divider">Total</p>
+                        <table class="details-total">
+                            <tr>
+                                <td><p>Subtotal: </p></td>
+                                <td><p>${{subtotal.toFixed(2)}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Tax:</p></td>
+                                <td><p>${{tax.toFixed(2)}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Total:</strong></p></td>
+                                <td><p><strong>${{total.toFixed(2)}}</strong></p></td>
+                            </tr>
+                        </table>
+
+                        <p v-on:click="alert()" class="button mt-3">Place Order Now!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Order Details -->
+
         </div>
     </div>
 
